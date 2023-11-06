@@ -23,6 +23,26 @@ public class main {
         a.recorrerYMostrarDOM();
         
         
+        
+        String titulo="titulo de prueba";
+        String autor="autor de prueba";
+        String id="idprueba";
+        String fecha="fecha prueba";
+        String descripcion="descripcion de prueba";
+        String genero="genero de prueba";
+        double precio=1;
+        
+        
+        Libro unLibro=new Libro(id,autor,titulo,genero,fecha,descripcion,precio);
+        
+        a.insertarLibroEnDom(unLibro);
+        
+        System.out.println("");
+        a.recorrerYMostrarDOM();
+        
+        
+        
+        
     }
     
 }
