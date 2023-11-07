@@ -272,13 +272,33 @@ public class MetodosDOMyXML {
             
             transformer.transform(src, (javax.xml.transform.Result)rst);
             System.out.println("\n SE HA CREADO EL FICHERO "+nombreArchivo+" CON LA ESTRUCTURA DEL DOM\n");
+            
         } catch (IllegalArgumentException | TransformerException e) {
             System.out.println(e);
         }
     }
     
-    
-    
-    
+    String obtenerID (Document doc) {
+        
+        NodeList nodeList = doc.getElementsByTagName("book");
+        
+        int ultimaPos = nodeList.getLength()-1;
+        
+        //Cogemos el ultimo nodo del DOM
+        Node nodo = nodeList.item(ultimaPos);
+        
+        //Debemos castear a Element para usar el método getAttribute
+        Element element = (Element)nodo;
+        
+        //obtenemos la cadena de id y cogemos solo el numero
+        String aux = element.getAttribute("id");
+        String idNodo = aux.substring(2, aux.length());
+        
+        //Convertimos a numero y sumamos 1
+        int nID = Integer.parseInt(idNodo)+1;
+        idNodo = "bk"+nID;
+        return idNodo;
+        
+    }
     
 }

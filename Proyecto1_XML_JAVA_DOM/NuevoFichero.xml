@@ -214,13 +214,4 @@
            
     </book>
     
-    <book id="idprueba">
-        <author>autor de prueba</author>
-        <title>titulo de prueba</title>
-        <genre>genero de prueba</genre>
-        <price>1.0</price>
-        <publish_date>fecha prueba</publish_date>
-        <publish_date>descripcion de prueba</publish_date>
-        
-    </book>
 </catalog>
