@@ -28,6 +28,13 @@ public class MetodosDOMyXML {
             DocumentBuilder db=dbf.newDocumentBuilder();
             documento=db.parse(fichero);
             System.out.println("DOM generado con éxito\n");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("");
             
             
             return 0;
@@ -89,6 +96,13 @@ public class MetodosDOMyXML {
             }
             
         }
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("");
         
     }
     
@@ -171,6 +185,13 @@ public class MetodosDOMyXML {
           Node raiz=documento.getFirstChild();//tb. doc.getChildNodes().item(0)
           raiz.appendChild(nodoLibro);
           System.out.println("Libro insertado en DOM.");
+          System.out.println("---------------------------------");
+          System.out.println("---------------------------------");
+          System.out.println("---------------------------------");
+          System.out.println("---------------------------------");
+          System.out.println("---------------------------------");
+          System.out.println("---------------------------------");
+          System.out.println("");
         
         
             
@@ -184,6 +205,49 @@ public class MetodosDOMyXML {
         
         
         
+        
+    }
+    
+    
+    public int borrarNodo(String titulo) {
+        
+        System.out.println("Se procederá a borrar el siguiente libro :"+titulo);
+        
+        try{
+            Node raiz=documento.getDocumentElement();
+            NodeList listaNodo=documento.getElementsByTagName("title");
+            Node nodo;
+            
+            
+            
+            for (int i = 0; i < listaNodo.getLength(); i++) {
+                
+                nodo=listaNodo.item(i);
+                
+                if(nodo.getNodeType()==Node.ELEMENT_NODE) {
+                    if(nodo.getChildNodes().item(0).getNodeValue().equals(titulo)) {
+                        System.out.println("Borrando el nodo <book> con título: "+titulo);
+                        nodo.getParentNode().getParentNode().removeChild(nodo.getParentNode());
+                    }
+                }
+                
+            }
+            
+            System.out.println("Se ha borrado el nodo correspondiente al libro "+titulo);
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+            System.out.println("");
+            
+            return 0;
+        }catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+            return -1;
+        }
         
     }
     

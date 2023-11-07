@@ -13,13 +13,6 @@ public class main {
         File fichero=new File("Books.xml");
         MetodosDOMyXML a=new MetodosDOMyXML();
         a.generarDOM(fichero);
-        System.out.println("---------------------------------");
-        System.out.println("---------------------------------");
-        System.out.println("---------------------------------");
-        System.out.println("---------------------------------");
-        System.out.println("---------------------------------");
-        System.out.println("---------------------------------");
-        System.out.println("");
         a.recorrerYMostrarDOM();
         
         
@@ -39,6 +32,13 @@ public class main {
         
         System.out.println("");
         a.recorrerYMostrarDOM();
+        
+        
+        System.out.println("");
+        a.borrarNodo(titulo);
+        
+        System.out.println("");
+         a.recorrerYMostrarDOM();
         
         
         
