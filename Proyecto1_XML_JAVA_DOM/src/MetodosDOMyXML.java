@@ -117,10 +117,12 @@ public class MetodosDOMyXML {
     
     public int insertarLibroEnDom(Libro unLibro) {
         
+        String id = obtenerID(documento);
+        
         try {
             System.out.println("Añaiendo al árbol el siguiente libro: \n");
             System.out.println("Título: " +unLibro.getTitulo()+ "\n");
-            System.out.println("id: " +unLibro.getId() + "\n");
+            System.out.println("id: " + id + "\n");
             System.out.println("Autor: " +unLibro.getAutor() + "\n");
             System.out.println("Género: " +unLibro.getGenero() + "\n");
             System.out.println("Precio: " +unLibro.getPrecio() + "\n");
@@ -180,7 +182,7 @@ public class MetodosDOMyXML {
             //Añadimos el libro con el atributo id
             
           Node nodoLibro=documento.createElement("book");
-          ((Element)nodoLibro).setAttribute("id",unLibro.getId());
+          ((Element)nodoLibro).setAttribute("id",id);
           nodoLibro.appendChild(nodoAutor);
           nodoLibro.appendChild(nodoTitulo);
           nodoLibro.appendChild(nodoGenero);
@@ -278,6 +280,7 @@ public class MetodosDOMyXML {
         }
     }
     
+    //Crear id Autoincremental
     String obtenerID (Document doc) {
         
         NodeList nodeList = doc.getElementsByTagName("book");

@@ -33,7 +33,7 @@ public class main {
             System.out.println("Bienvenido al gestor de librerías");
             System.out.println("Seleccione una de las siguientes opciones:\n"
                     + "[1] Mostrar todos los libros\n"
-                    + "[2] Añadir un libro a la librería\n"
+                    + "[2] 2Añadir un libro a la librería\n"
                     + "[3] Borrar un libro de la librería\n"
                     + "[4] Guardar el DOM de la librería en un fichero\n"
                     + "[5] Para salir\n"
