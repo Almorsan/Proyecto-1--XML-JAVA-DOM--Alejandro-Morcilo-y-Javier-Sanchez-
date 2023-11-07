@@ -20,12 +20,14 @@ public class main {
         //Creamos un libro
         String titulo="titulo de prueba";
         String autor="autor de prueba";
-        String id="idprueba";
+        String id="idprueba"; //este id ya no se utiliza
         String fecha="fecha prueba";
         String descripcion="descripcion de prueba";
         String genero="genero de prueba";
         double precio=1;
         
+        //añadimos el id ya que nos lo pide el constructor del libro, pero luego
+        //lo utilizaremos en el método insertarLibroEnDom
         Libro unLibro=new Libro(id,autor,titulo,genero,fecha,descripcion,precio);
         
          while (opcion != 5) {
