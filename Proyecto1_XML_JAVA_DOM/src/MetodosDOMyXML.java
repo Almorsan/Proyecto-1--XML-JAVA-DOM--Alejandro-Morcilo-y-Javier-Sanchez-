@@ -5,6 +5,14 @@ import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -198,7 +206,7 @@ public class MetodosDOMyXML {
             
             
           return 0;  
-        } catch (Exception e) {
+        } catch (DOMException e) {
             System.out.println("Error, no se ha podido insertar el libro"+e);
             return -1; 
            }
@@ -243,12 +251,30 @@ public class MetodosDOMyXML {
             System.out.println("");
             
             return 0;
-        }catch (Exception e) {
+        }catch (DOMException e) {
             System.out.println(e);
             e.printStackTrace();
             return -1;
         }
         
+    }
+    
+    void guardarFicheroDOM (String nombreArchivo) {
+        
+        try {
+            Source src = new DOMSource(documento);
+            StreamResult rst = new StreamResult(new File(nombreArchivo));
+            
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            
+            //Opcion para indentar el archivo
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            
+            transformer.transform(src, (javax.xml.transform.Result)rst);
+            System.out.println("\n SE HA CREADO EL FICHERO "+nombreArchivo+" CON LA ESTRUCTURA DEL DOM\n");
+        } catch (IllegalArgumentException | TransformerException e) {
+            System.out.println(e);
+        }
     }
     
     
