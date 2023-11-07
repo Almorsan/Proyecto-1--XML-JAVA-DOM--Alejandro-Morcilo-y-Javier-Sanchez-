@@ -27,7 +27,7 @@ public class main {
         double precio=1;
         
         //añadimos el id ya que nos lo pide el constructor del libro, pero luego
-        //lo utilizaremos en el método insertarLibroEnDom
+        //no lo utilizaremos en el método insertarLibroEnDom
         Libro unLibro=new Libro(id,autor,titulo,genero,fecha,descripcion,precio);
         
          while (opcion != 5) {
