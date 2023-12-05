@@ -1,4 +1,4 @@
-
+//usamos esta clase para, de forma cómoda, insertar un nuevo libro en el DOM
 
 public class Libro {
     
